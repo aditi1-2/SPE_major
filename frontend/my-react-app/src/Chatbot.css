@@ -1,0 +1,41 @@
+.chatbot-container {
+    background-image: url('bg2.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content at the bottom */
+}
+
+.chatbox {
+    height: 800px;
+    overflow-y: scroll;
+    margin-right: 10px;
+    margin-left: 420px; 
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.input-box {
+    width: 90%; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    margin-right: 10px;
+    margin-left: 420px;
+    font-size: 20px;
+}
+
+.predict-button,
+.speech-button {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    cursor: pointer;
+}
+.chatbox p {
+    font-size: 26px; /* Increase font size for chat messages */
+}
