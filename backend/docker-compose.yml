@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    container_name: mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  flask-app:
+    build: .
+    container_name: flask-app
+    restart: unless-stopped
+    environment:
+      FLASK_APP: app.py
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    links:
+      - db
+
+  react-app:
+    build:
+      context: ../frontend/my-react-app
+    container_name: react-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+
+volumes:
+  db_data:
